@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Diary
 
-## Getting Started
+A personal diary app that gives you a quiet space to write every day, with a little context from the world around you.
 
-First, run the development server:
+## What it does
+
+**Write** — Open the app and start writing. Your entry saves automatically as you type, and there's a Save button if you want to be sure. Pick a mood for the day from the feeling buttons above the editor.
+
+**Remember** — The sidebar shows what you wrote on this same date last year (and the two days before it), so you can see how things have changed.
+
+**Discover** — While you write, the sidebar also shows a few things that happened in history on today's date, and today's top news headlines for context.
+
+**Look back** — Browse every past entry in the Archive, search across all your writing, or view your mood history as a monthly calendar.
+
+**Understand yourself** — The Analysis page shows a 14-day mood chart and writing stats like your current streak and average words per entry.
+
+## Pages
+
+| Page | What's there |
+|---|---|
+| `/` | Today's diary entry |
+| `/archive` | All past entries, newest first |
+| `/archive/[date]` | A single past entry |
+| `/analysis` | Mood chart + writing stats |
+| `/search` | Search across all entries |
+| `/mood` | Monthly mood calendar |
+| `/settings` | Export or delete your data |
+
+## Your data
+
+Everything you write is stored locally in your browser — nothing is sent to any server. This means your diary is private to your device. You can export all your entries as JSON or plain text from the Settings page.
+
+## Running locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To enable the news headlines sidebar, create a `.env.local` file:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+NEWS_API_KEY=your_key_from_newsapi.org
+```
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The "Today in History" sidebar uses the Wikipedia API and works without any setup.
