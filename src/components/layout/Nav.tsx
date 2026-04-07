@@ -10,14 +10,14 @@ const links = [
 
 export function Nav() {
   return (
-    <nav className="flex items-center justify-between px-8 py-4 border-b border-stone-200">
-      <Link href="/" className="font-serif text-xl text-stone-800 hover:text-stone-600 transition-colors">
-        My Diary
+    <nav className="flex items-center justify-between px-8 py-4 border-b border-stone-100">
+      <Link href="/" className="hover:opacity-70 transition-opacity" style={{ fontFamily: 'var(--font-lora), Georgia, serif', fontStyle: 'italic', fontSize: '1.4rem', color: '#C96A50' }}>
+        my diary
       </Link>
       <div className="flex items-center gap-6">
         {links.map(({ href, label }) => (
           <Link key={href} href={href}
-            className="font-sans text-xs text-stone-400 hover:text-stone-600 transition-colors uppercase tracking-widest">
+            className="font-sans text-xs text-stone-400 hover:text-stone-700 transition-colors tracking-wide">
             {label}
           </Link>
         ))}

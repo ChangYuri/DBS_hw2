@@ -1,0 +1,58 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "my diary" [ref=e3] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e4]:
+      - link "Archive" [ref=e5] [cursor=pointer]:
+        - /url: /archive
+      - link "Analysis" [ref=e6] [cursor=pointer]:
+        - /url: /analysis
+      - link "Mood" [ref=e7] [cursor=pointer]:
+        - /url: /mood
+      - link "Search" [ref=e8] [cursor=pointer]:
+        - /url: /search
+      - link "Settings" [ref=e9] [cursor=pointer]:
+        - /url: /settings
+  - main [ref=e10]:
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - generic [ref=e13]:
+          - time [ref=e14]: Monday, April 6, 2026
+          - generic [ref=e15]: 2-day streak
+        - generic [ref=e16]:
+          - paragraph [ref=e17]: How are you feeling?
+          - generic [ref=e18]:
+            - button "Happy" [ref=e19]
+            - button "Excited" [ref=e20]
+            - button "Content" [ref=e21]
+            - button "Neutral" [ref=e22]
+            - button "Anxious" [ref=e23]
+            - button "Sad" [ref=e24]
+            - button "Angry" [ref=e25]
+        - textbox "Write something..." [ref=e27]
+        - generic [ref=e28]: All changes saved
+      - complementary [ref=e29]:
+        - generic [ref=e30]:
+          - paragraph [ref=e31]: Last Year
+          - generic [ref=e32]:
+            - generic [ref=e33]:
+              - paragraph [ref=e34]: Apr 6, 2025
+              - paragraph [ref=e35]: Nothing written.
+            - generic [ref=e36]:
+              - paragraph [ref=e37]: Apr 5, 2025
+              - paragraph [ref=e38]: Nothing written.
+            - generic [ref=e39]:
+              - paragraph [ref=e40]: Apr 4, 2025
+              - paragraph [ref=e41]: Nothing written.
+        - generic [ref=e42]:
+          - paragraph [ref=e43]: Today in History
+          - list [ref=e44]:
+            - listitem [ref=e45]: 2018 — A bus carrying the Humboldt Broncos junior ice hockey team collides with a semi-truck in Saskatchewan, Canada, killing 16 people and injuring 13 others.
+            - listitem [ref=e46]: 2017 — U.S. military launches 59 Tomahawk cruise missiles at an air base in Syria. Russia describes the strikes as an "aggression", adding they significantly damage US-Russia ties.
+            - listitem [ref=e47]: 2012 — Azawad declares itself independent from the Republic of Mali.
+        - generic [ref=e48]:
+          - paragraph [ref=e49]: Today's News
+          - paragraph [ref=e50]: News API key not configured.
+  - button "Open Next.js Dev Tools" [ref=e56] [cursor=pointer]:
+    - img [ref=e57]
+  - alert [ref=e60]

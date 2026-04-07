@@ -1,0 +1,67 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e6] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e7]:
+      - img [ref=e8]
+    - generic [ref=e11]:
+      - button "Open issues overlay" [ref=e12]:
+        - generic [ref=e13]:
+          - generic [ref=e14]: "0"
+          - generic [ref=e15]: "1"
+        - generic [ref=e16]: Issue
+      - button "Collapse issues badge" [ref=e17]:
+        - img [ref=e18]
+  - navigation [ref=e20]:
+    - link "My Diary" [ref=e21] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e22]:
+      - link "Archive" [ref=e23] [cursor=pointer]:
+        - /url: /archive
+      - link "Analysis" [ref=e24] [cursor=pointer]:
+        - /url: /analysis
+      - link "Mood" [ref=e25] [cursor=pointer]:
+        - /url: /mood
+      - link "Search" [ref=e26] [cursor=pointer]:
+        - /url: /search
+      - link "Settings" [ref=e27] [cursor=pointer]:
+        - /url: /settings
+  - main [ref=e28]:
+    - generic [ref=e29]:
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - time [ref=e32]: Monday, April 6, 2026
+          - generic [ref=e33]: 2-day streak
+        - generic [ref=e34]:
+          - paragraph [ref=e35]: How are you feeling?
+          - generic [ref=e36]:
+            - button "Happy" [ref=e37]
+            - button "Excited" [ref=e38]
+            - button "Content" [ref=e39]
+            - button "Neutral" [ref=e40]
+            - button "Anxious" [ref=e41]
+            - button "Sad" [ref=e42]
+            - button "Angry" [ref=e43]
+        - textbox "Write something..." [ref=e45]
+        - generic [ref=e46]: All changes saved
+      - complementary [ref=e47]:
+        - generic [ref=e48]:
+          - paragraph [ref=e49]: Last Year
+          - generic [ref=e50]:
+            - generic [ref=e51]:
+              - paragraph [ref=e52]: Apr 6, 2025
+              - paragraph [ref=e53]: Nothing written.
+            - generic [ref=e54]:
+              - paragraph [ref=e55]: Apr 5, 2025
+              - paragraph [ref=e56]: Nothing written.
+            - generic [ref=e57]:
+              - paragraph [ref=e58]: Apr 4, 2025
+              - paragraph [ref=e59]: Nothing written.
+        - generic [ref=e60]:
+          - paragraph [ref=e61]: Today in History
+          - list [ref=e62]:
+            - listitem [ref=e63]: 2018 — A bus carrying the Humboldt Broncos junior ice hockey team collides with a semi-truck in Saskatchewan, Canada, killing 16 people and injuring 13 others.
+            - listitem [ref=e64]: 2017 — U.S. military launches 59 Tomahawk cruise missiles at an air base in Syria. Russia describes the strikes as an "aggression", adding they significantly damage US-Russia ties.
+            - listitem [ref=e65]: 2012 — Azawad declares itself independent from the Republic of Mali.
+        - generic [ref=e66]:
+          - paragraph [ref=e67]: Today's News
+          - paragraph [ref=e68]: News API key not configured.
+  - alert [ref=e69]

@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { toStorageKey, getLastYearKeys } from '@/lib/dates';
+import { toStorageKey } from '@/lib/dates';
 import { useDiaryEntry } from '@/hooks/useDiaryEntry';
 import { useLastYear } from '@/hooks/useLastYear';
 import { Editor } from '@/components/diary/Editor';
@@ -18,11 +18,10 @@ export default function HomePage() {
   const today = useMemo(() => new Date(), []);
   const storageKey = toStorageKey(today);
 
-  const { content, setContent, saveStatus, entry } = useDiaryEntry(storageKey);
+  const { content, setContent, saveNow, saveStatus, entry } = useDiaryEntry(storageKey);
   const [currentMood, setCurrentMood] = useState<Mood | undefined>(entry?.mood);
   const lastYearEntries = useLastYear(today);
 
-  // Sync mood from loaded entry
   useMemo(() => {
     if (entry?.mood) setCurrentMood(entry.mood);
   }, [entry]);
@@ -44,7 +43,14 @@ export default function HomePage() {
           onMoodChange={(m) => setCurrentMood(m ?? undefined)}
         />
         <Editor content={content} onChange={setContent} />
-        <div className="mt-3 h-5">
+        <div className="mt-4 flex items-center gap-4">
+          <button
+            onClick={() => saveNow(content)}
+            className="px-4 py-1.5 rounded-full text-xs font-sans border transition-all text-white"
+            style={{ background: '#C96A50', borderColor: '#C96A50' }}
+          >
+            Save
+          </button>
           <SaveStatus status={saveStatus} />
         </div>
       </section>

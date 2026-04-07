@@ -1,14 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FAF7F2;
-  --foreground: #1C1917;
-  --panel-bg: #F5F0E8;
+  --background: #FDFAF6;
+  --foreground: #2C2420;
+  --accent: #C96A50;
+  --accent-light: #F8EDE9;
+  --panel-bg: #F5F1EC;
+  --panel-border: #E4DDD5;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --font-serif: var(--font-lora), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
 }
 
 body {
@@ -18,24 +23,30 @@ body {
 
 .panel {
   background: var(--panel-bg);
-  border: 1px solid #E7E0D4;
-  border-radius: 6px;
-  padding: 1rem;
+  border: 1.5px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
 }
 
 .panel-label {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-family: sans-serif;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #A8A29E;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: #A89B92;
   margin-bottom: 0.75rem;
 }
 
-.font-serif {
-  font-family: 'Lora', Georgia, serif;
-}
-
-.font-sans {
-  font-family: 'Inter', system-ui, sans-serif;
+/* Soft ruled-line texture in the editor */
+.editor-lines textarea {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 31px,
+    #EAE4DC 31px,
+    #EAE4DC 32px
+  );
+  background-attachment: local;
+  line-height: 32px;
+  padding-top: 4px;
 }

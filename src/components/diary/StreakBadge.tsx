@@ -24,7 +24,7 @@ export function StreakBadge() {
 
   return (
     <span className="font-sans text-xs text-amber-600 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full">
-      🔥 {streak}-day streak
+      {streak}-day streak
     </span>
   );
 }

@@ -33,5 +33,13 @@ export function useDiaryEntry(storageKey: string) {
     }, 800);
   }, [storageKey]);
 
-  return { content, setContent, saveStatus, entry };
+  const saveNow = useCallback((val: string) => {
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    setSaveStatus('saving');
+    const saved = saveEntry(storageKey, val);
+    setEntry(saved);
+    setTimeout(() => setSaveStatus('saved'), 400);
+  }, [storageKey]);
+
+  return { content, setContent, saveNow, saveStatus, entry };
 }

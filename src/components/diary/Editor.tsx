@@ -8,11 +8,14 @@ interface EditorProps {
 
 export function Editor({ content, onChange, placeholder }: EditorProps) {
   return (
-    <textarea
-      value={content}
-      onChange={(e) => onChange(e.target.value)}
-      placeholder={placeholder ?? "What's on your mind today?"}
-      className="w-full flex-1 min-h-[60vh] resize-none bg-transparent font-serif text-lg leading-8 text-stone-800 placeholder:text-stone-300 focus:outline-none"
-    />
+    <div className="editor-lines flex-1">
+      <textarea
+        value={content}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder ?? "Write something..."}
+        className="w-full min-h-[60vh] resize-none bg-transparent font-serif text-lg text-stone-800 placeholder:text-stone-300 focus:outline-none"
+        style={{ lineHeight: '32px', paddingTop: '4px' }}
+      />
+    </div>
   );
 }

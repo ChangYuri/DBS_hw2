@@ -27,7 +27,7 @@ export function NewsPanel() {
           {data.articles.map((a, i) => (
             <li key={i}>
               <a href={a.url} target="_blank" rel="noopener noreferrer"
-                className="text-sm text-stone-700 leading-relaxed hover:text-slate-600 transition-colors">
+                className="text-sm text-stone-700 leading-relaxed hover:opacity-60 transition-opacity">
                 {a.title}
               </a>
               <p className="text-xs text-stone-400 mt-0.5">{a.source}</p>

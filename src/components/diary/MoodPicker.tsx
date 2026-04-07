@@ -3,14 +3,14 @@
 import { Mood } from '@/types/diary';
 import { saveMood } from '@/lib/localStorage';
 
-const MOODS: { value: Mood; emoji: string; label: string }[] = [
-  { value: 'happy', emoji: '😊', label: 'Happy' },
-  { value: 'excited', emoji: '🤩', label: 'Excited' },
-  { value: 'content', emoji: '😌', label: 'Content' },
-  { value: 'neutral', emoji: '😐', label: 'Neutral' },
-  { value: 'anxious', emoji: '😰', label: 'Anxious' },
-  { value: 'sad', emoji: '😢', label: 'Sad' },
-  { value: 'angry', emoji: '😠', label: 'Angry' },
+const MOODS: { value: Mood; label: string }[] = [
+  { value: 'happy',   label: 'Happy'   },
+  { value: 'excited', label: 'Excited' },
+  { value: 'content', label: 'Content' },
+  { value: 'neutral', label: 'Neutral' },
+  { value: 'anxious', label: 'Anxious' },
+  { value: 'sad',     label: 'Sad'     },
+  { value: 'angry',   label: 'Angry'   },
 ];
 
 interface MoodPickerProps {
@@ -28,21 +28,20 @@ export function MoodPicker({ storageKey, currentMood, onMoodChange }: MoodPicker
 
   return (
     <div className="mb-6">
-      <p className="text-xs font-sans text-stone-400 uppercase tracking-widest mb-3">How are you feeling?</p>
+      <p className="font-sans text-xs text-stone-400 tracking-widest uppercase mb-3">How are you feeling?</p>
       <div className="flex flex-wrap gap-2">
-        {MOODS.map(({ value, emoji, label }) => (
+        {MOODS.map(({ value, label }) => (
           <button
             key={value}
             onClick={() => handleClick(value)}
-            title={label}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm border transition-all ${
+            className={`px-3.5 py-1.5 rounded-full text-xs font-sans border transition-all ${
               currentMood === value
-                ? 'bg-stone-800 text-white border-stone-800'
-                : 'bg-transparent text-stone-600 border-stone-200 hover:border-stone-400'
+                ? 'border-transparent text-white'
+                : 'bg-transparent text-stone-500 border-stone-200 hover:border-stone-400'
             }`}
+            style={currentMood === value ? { background: '#C96A50' } : {}}
           >
-            <span>{emoji}</span>
-            <span className="font-sans text-xs">{label}</span>
+            {label}
           </button>
         ))}
       </div>

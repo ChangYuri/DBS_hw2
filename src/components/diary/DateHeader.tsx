@@ -13,7 +13,7 @@ export function DateHeader({ date }: DateHeaderProps) {
 
   return (
     <time dateTime={typeof date === 'string' ? date : d.toISOString().split('T')[0]}
-      className="block text-sm font-sans text-stone-400 uppercase tracking-widest">
+      className="block font-serif italic text-2xl" style={{ color: 'var(--foreground)', opacity: 0.75 }}>
       {display}
     </time>
   );
