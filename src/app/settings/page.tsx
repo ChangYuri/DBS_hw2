@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { getAllEntries } from '@/lib/localStorage';
+import { getAllEntries, deleteAllEntries } from '@/lib/db';
 
 function downloadFile(content: string, filename: string, type: string) {
   const blob = new Blob([content], { type });
@@ -17,24 +17,19 @@ export default function SettingsPage() {
   const [confirmText, setConfirmText] = useState('');
   const [cleared, setCleared] = useState(false);
 
-  function exportJSON() {
-    const entries = getAllEntries();
+  async function exportJSON() {
+    const entries = await getAllEntries();
     downloadFile(JSON.stringify(entries, null, 2), 'diary-export.json', 'application/json');
   }
 
-  function exportText() {
-    const entries = getAllEntries();
+  async function exportText() {
+    const entries = await getAllEntries();
     const text = entries.map((e) => `--- ${e.date} ---\n${e.content}`).join('\n\n');
     downloadFile(text, 'diary-export.txt', 'text/plain');
   }
 
-  function clearAll() {
-    const keys: string[] = [];
-    for (let i = 0; i < localStorage.length; i++) {
-      const k = localStorage.key(i);
-      if (k && /^diary-\d{4}-\d{2}-\d{2}$/.test(k)) keys.push(k);
-    }
-    keys.forEach((k) => localStorage.removeItem(k));
+  async function clearAll() {
+    await deleteAllEntries();
     setCleared(true);
     setConfirmText('');
   }

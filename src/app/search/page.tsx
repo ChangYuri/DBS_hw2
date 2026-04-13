@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { DiaryEntry } from '@/types/diary';
-import { getAllEntries } from '@/lib/localStorage';
+import { getAllEntries } from '@/lib/db';
 
 function highlight(text: string, query: string): React.ReactNode {
   if (!query) return text;
@@ -23,7 +23,7 @@ export default function SearchPage() {
   const [allEntries, setAllEntries] = useState<DiaryEntry[]>([]);
 
   useEffect(() => {
-    setAllEntries(getAllEntries());
+    getAllEntries().then(setAllEntries);
   }, []);
 
   const results = query.trim()

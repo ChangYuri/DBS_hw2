@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { getAllEntries } from '@/lib/localStorage';
+import { getAllEntries } from '@/lib/db';
 import { toDateKey } from '@/lib/dates';
 import { subDays } from 'date-fns';
 
@@ -9,15 +9,16 @@ export function StreakBadge() {
   const [streak, setStreak] = useState(0);
 
   useEffect(() => {
-    const entries = getAllEntries();
-    const dateSet = new Set(entries.map((e) => e.date));
-    let count = 0;
-    let cursor = new Date();
-    while (dateSet.has(toDateKey(cursor))) {
-      count++;
-      cursor = subDays(cursor, 1);
-    }
-    setStreak(count);
+    getAllEntries().then((entries) => {
+      const dateSet = new Set(entries.map((e) => e.date));
+      let count = 0;
+      let cursor = new Date();
+      while (dateSet.has(toDateKey(cursor))) {
+        count++;
+        cursor = subDays(cursor, 1);
+      }
+      setStreak(count);
+    });
   }, []);
 
   if (streak === 0) return null;

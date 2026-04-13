@@ -1,7 +1,7 @@
 'use client';
 
 import { Mood } from '@/types/diary';
-import { saveMood } from '@/lib/localStorage';
+import { saveMood } from '@/lib/db';
 
 const MOODS: { value: Mood; label: string }[] = [
   { value: 'happy',   label: 'Happy'   },
@@ -14,15 +14,15 @@ const MOODS: { value: Mood; label: string }[] = [
 ];
 
 interface MoodPickerProps {
-  storageKey: string;
+  date: string;
   currentMood?: Mood;
   onMoodChange: (mood: Mood | null) => void;
 }
 
-export function MoodPicker({ storageKey, currentMood, onMoodChange }: MoodPickerProps) {
-  function handleClick(value: Mood) {
+export function MoodPicker({ date, currentMood, onMoodChange }: MoodPickerProps) {
+  async function handleClick(value: Mood) {
     const next = currentMood === value ? null : value;
-    saveMood(storageKey, next);
+    await saveMood(date, next);
     onMoodChange(next);
   }
 

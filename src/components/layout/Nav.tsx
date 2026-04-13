@@ -1,7 +1,9 @@
 import Link from 'next/link';
+import { Show, SignInButton, UserButton } from '@clerk/nextjs';
 
 const links = [
   { href: '/archive', label: 'Archive' },
+  { href: '/community', label: 'Community' },
   { href: '/analysis', label: 'Analysis' },
   { href: '/mood', label: 'Mood' },
   { href: '/search', label: 'Search' },
@@ -21,6 +23,16 @@ export function Nav() {
             {label}
           </Link>
         ))}
+        <Show when="signed-out">
+          <SignInButton mode="modal">
+            <button className="font-sans text-xs text-stone-400 hover:text-stone-700 transition-colors tracking-wide">
+              Sign in
+            </button>
+          </SignInButton>
+        </Show>
+        <Show when="signed-in">
+          <UserButton />
+        </Show>
       </div>
     </nav>
   );

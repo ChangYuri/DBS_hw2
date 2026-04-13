@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Lora, Inter } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
 import { Nav } from "@/components/layout/Nav";
 import "./globals.css";
 
@@ -25,11 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${lora.variable} ${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col" style={{ background: 'var(--background)', color: 'var(--foreground)' }}>
-        <Nav />
-        <main className="flex-1 flex flex-col">{children}</main>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" className={`${lora.variable} ${inter.variable} h-full antialiased`}>
+        <body className="min-h-full flex flex-col" style={{ background: 'var(--background)', color: 'var(--foreground)' }}>
+          <Nav />
+          <main className="flex-1 flex flex-col">{children}</main>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

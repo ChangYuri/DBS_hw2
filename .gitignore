@@ -39,3 +39,21 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE history (VS Code Local History extension)
+.history/
+
+# Playwright MCP output
+.playwright-mcp/
+
+# Screenshots captured during development
+*.png
+*.jpg
+*.jpeg
+
+# Editor directories
+.idea/
+.vscode/
+
+# OS
+Thumbs.db

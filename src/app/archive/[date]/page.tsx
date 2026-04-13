@@ -3,7 +3,7 @@
 import { use, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { DiaryEntry } from '@/types/diary';
-import { getEntry } from '@/lib/localStorage';
+import { getEntry } from '@/lib/db';
 import { DateHeader } from '@/components/diary/DateHeader';
 
 export default function EntryPage({ params }: { params: Promise<{ date: string }> }) {
@@ -11,7 +11,7 @@ export default function EntryPage({ params }: { params: Promise<{ date: string }
   const [entry, setEntry] = useState<DiaryEntry | null | undefined>(undefined);
 
   useEffect(() => {
-    setEntry(getEntry(`diary-${date}`));
+    getEntry(date).then(setEntry);
   }, [date]);
 
   if (entry === undefined) return null;

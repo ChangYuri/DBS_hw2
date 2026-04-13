@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { DiaryEntry, Mood } from '@/types/diary';
-import { getAllEntries } from '@/lib/localStorage';
+import { getAllEntries } from '@/lib/db';
 import { toDateKey } from '@/lib/dates';
 
 const MOOD_COLOR: Record<Mood, string> = {
@@ -28,7 +28,7 @@ export default function MoodPage() {
   const [month, setMonth] = useState(new Date().getMonth()); // 0-indexed
 
   useEffect(() => {
-    setEntries(getAllEntries());
+    getAllEntries().then(setEntries);
   }, []);
 
   const entryMap = Object.fromEntries(entries.map((e) => [e.date, e]));

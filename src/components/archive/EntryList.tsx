@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import { DiaryEntry } from '@/types/diary';
-import { getAllEntries } from '@/lib/localStorage';
+import { getAllEntries } from '@/lib/db';
 import { EntryCard } from './EntryCard';
 
 export function EntryList() {
   const [entries, setEntries] = useState<DiaryEntry[]>([]);
 
   useEffect(() => {
-    setEntries(getAllEntries());
+    getAllEntries().then(setEntries);
   }, []);
 
   if (entries.length === 0) {

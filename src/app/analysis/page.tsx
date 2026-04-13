@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { subDays } from 'date-fns';
 import { DiaryEntry, Mood } from '@/types/diary';
-import { getAllEntries } from '@/lib/localStorage';
+import { getAllEntries } from '@/lib/db';
 import { toDateKey } from '@/lib/dates';
 
 const MOOD_CONFIG: Record<Mood, { label: string; emoji: string; color: string; bg: string }> = {
@@ -20,7 +20,7 @@ export default function AnalysisPage() {
   const [entries, setEntries] = useState<DiaryEntry[]>([]);
 
   useEffect(() => {
-    setEntries(getAllEntries());
+    getAllEntries().then(setEntries);
   }, []);
 
   const today = new Date();
